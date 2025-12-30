@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section class="tabs">
+  <div class="tab-buttons">
+    <button class="tab-btn active" data-tab="tab1">Overview</button>
+    <button class="tab-btn" data-tab="tab2">Features</button>
+    <button class="tab-btn" data-tab="tab3">Pricing</button>
+  </div>
+
+  <div class="tab-content" id="tab1">
+    <p>RohamUI is a luxury design system for modern web experiences.</p>
+  </div>
+  <div class="tab-content hidden" id="tab2">
+    <p>Clean UI, responsive layouts, and smooth interactions.</p>
+  </div>
+  <div class="tab-content hidden" id="tab3">
+    <p>Starts at $29/month with premium support.</p>
+  </div>
+</section>
+
+<script>
+    const buttons = document.querySelectorAll(".tab-btn");
+const contents = document.querySelectorAll(".tab-content");
+
+        buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+   
+            buttons.forEach(b => b.classList.remove("active"));
+        
+            contents.forEach(c => c.classList.add("hidden"));
+
+        
+            btn.classList.add("active");
+           
+            const tabId = btn.getAttribute("data-tab");
+            document.getElementById(tabId).classList.remove("hidden");
+  });
+});
+</script>
+</body>
+</html>
